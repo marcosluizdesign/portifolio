@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Portfólio de Marcos Reis - Designer Gráfico com mais de 20 anos de experiência. Logos, edições e redes sociais.">
+  <title>Marcos Reis | Portfólio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #000000;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #e0e0e0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      margin: 0 auto;
+    }
+
+    nav a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #000;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #e60000;
+      font-weight: bold;
+    }
+
+    .theme-toggle {
+      margin-left: 2rem;
+      cursor: pointer;
+      background: none;
+      border: 2px solid #000;
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      color: #000;
+      transition: all 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background-color: #000000;
+      border-color: #000000;
+      color: #fff;
+    }
+
+    section {
+      padding: 100px 60px 60px;
+      min-height: 60vh;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      color: #e60000;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .btn {
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      background-color: #e60000;
+      border: none;
+      color: white;
+      border-radius: 25px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #800000;
+    }
+
+    .carousel {
+      position: relative;
+      max-width: 1000px;
+      margin: 10px auto;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+      width: 100%;
+    }
+
+    .slide {
+      min-width: 100%;
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    .slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .control-btn {
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: #fff;
+      padding: 9px;
+      cursor: pointer;
+      font-size: 2rem;
+      transition: background 0.3s;
+      border-radius: 12%;
+    }
+
+    .control-btn:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+  transform: scale(1.09);
+  z-index: 2;
+}
+
+.gallery img.hidden {
+  display: none;
+}
+
+    .load-more-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .load-more-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .load-more-btn:hover {
+      background-color: rgb(121, 0, 0);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+
+    form {
+      max-width: 600px;
+      margin: 2rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    form input,
+    form textarea {
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    form button {
+      background-color: #e60000;
+      color: white;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    form button:hover {
+      background-color: #c40000;
+    }
+
+    .dark-mode {
+      background-color: #0f0f0f;
+      color: #ffffff;
+    }
+
+    .dark-mode header,
+    .dark-mode footer {
+      background-color: #111111;
+    }
+
+    .dark-mode nav a,
+    .dark-mode .theme-toggle {
+      color: #ffffff;
+      border-color: #ffffff;
+    }
+
+    .dark-mode .theme-toggle:hover {
+      background-color: #e60000;
+      border-color: #e60000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #b9b9b9;
+      font-size: 0.9rem;
+      color: #434343;
+    }
+
+ .galeria-clientes {
+  padding: 60px 20px;
+  background-color: #aaaaaa;
+  text-align: center;
+}
+
+.galeria-titulo {
+  color: red;
+  font-size: 2em;
+  margin-bottom: 40px;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.galeria-grid img {
+  width: 100%;
+  filter: grayscale(100%) opacity(0.6);
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+
+.galeria-grid img:hover {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.15);
+}
+
+.hidden-logos {
+  display: none;
+}
+
+.hidden-logos.show {
+  display: contents;
+}
+
+#toggle-button {
+  margin-top: 30px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor:pointer;
+  font-size: 1em;
+  transition: background 0.3s ease;
+}
+#toggle-button:hover {
+  background-color: #b30000;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  background-color: #25D366;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+  display: none; /* Oculto por padrão */
+}
+
+.whatsapp-float img {
+  width: 40px;
+  height: 40px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* Exibir somente em telas maiores que 768px */
+@media screen and (min-width: 768px) {
+  .whatsapp-float {
+    display: block;
+  }
+}
+/* Estilo da seção Sobre */
+.sobre-section {
+  padding: 40px 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sobre-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sobre-img {
+  flex: 1 1 300px;
+  max-width: 400px;
+  padding: 20px;
+  text-align: center;
+}
+
+.sobre-img img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.sobre-texto {
+  flex: 2 1 400px;
+  padding: 20px;
+  text-align: justify;
+}
+
+.sobre-texto h2 {
+  color: #c00;
+}
+
+/* Modo escuro */
+body.dark-theme .sobre-section {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark-theme .sobre-texto h2 {
+  color: #f60000;
+}
+  </style>
+</head>
+<body>
+
+  <header style="align-items: center; align-content: center; text-align: center;">
+      <h style="margin:auto;"><img id="logo-img" src="image/LogoMarcos.png" width="55%" height="auto"><img id="contato-img" src="image/contatos.png" width="20%" height="auto"></h>
+    <nav style="margin: auto;">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#Portfolio">Portfólio</a>
+      <a href="#contato">Contato</a>
+      <button class="theme-toggle" onclick="toggleTheme()">🌗</button>
+    </nav>
+  
+  </header>
+
+  <section id="inicio" class="hero" data-aos="fade-up" style="background-image: url('image/background.jpg');
+         background-size: cover;  background-position: center; background-repeat: no-repeat;  height: 100vh;">
+    <p><img src="image/topoinicial.png"></p>
+    <h2>Olá, bem vindo ao nosso <h2>universo de cores e formas</h2></h2>
+    <p>Sou um desenvolvedor gráfico apaixonado por criar experiências digitais modernas, bonitas e interativas.</p>
+    <button class="btn" onclick="document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });">Fale Comigo</button>
+  </section>
+  <section id="Banner" style="background-color: #f3f0f0;">
+  <div class="carousel" data-aos="fade-up">
+    <div class="slides" id="slides">
+      <div class="slide"><img src="image/EDICAO_BANNER.jpg" alt="Imagem 1"></div>
+      <div class="slide"><img src="image/LOGO_BANNER.jpg" alt="Imagem 2"></div>
+      <div class="slide"><img src="image/RedesSociaisBanner.jpg" alt="Imagem 3"></div>
+      <div class="slide"><img src="image/Manipulacao_Banner.jpg" alt="Imagem 4"></div>
+      <div class="slide"><img src="image/IA_BANNER.jpg" alt="Imagem 5"></div>
+
+    </div>
+    <div class="controls">
+      <button class="control-btn" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="control-btn" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+  </div>
+</section>
+  
+<section id="sobre" class="hero sobre-section" data-aos="fade-up">
+  <div class="sobre-container">
+    
+    <!-- Imagem à esquerda -->
+    <div class="sobre-img">
+      <img src="image/MarcosReis.jpg" alt="Foto de Marcos Luiz">
+    </div>
+
+    <!-- Texto à direita -->
+    <div class="sobre-texto">
+      <h2>Sobre Mim</h2>
+      <p>Sou Marcos Luiz, tenho 47 anos e atuo com Designer gráfico há mais de 20 anos. Já estive nas melhores agências de Barreiras no oeste da Bahia e também inserido no mercado publicitário de Aracaju - Sergipe.</p>
+      <p>Me considero um profissional bem capacitado, versátil e ágil. No mais, costumo dizer que a parte mais difícil do meu trabalho é entender as pessoas, e essa é a parte que importa no final.</p>
+    </div>
+
+  </div>
+</section>
+
+  <section id="Portfolio" data-aos="fade-up" style="margin: auto; text-align: center; max-width: 80%;">
+    <h2 style="font-size: 44px; color: #e60000;">Portfólio</h2>
+    <div class="gallery" id="gallery">
+    <!-- Substitua os 'src' abaixo pelos caminhos reais das suas imagens -->
+    <!-- Primeiras 12 imagens visíveis -->
+    <img src="image/Galeria_01.jpg" alt="">
+    <img src="image/Galeria_02.jpg" alt="">
+    <img src="image/Galeria_03.jpg"alt="">
+    <img src="image/Galeria_04.jpg"alt="">
+    <img src="image/Galeria_05.jpg"alt="">
+    <img src="image/Galeria_06.jpg"alt="">
+    <img src="image/Galeria_07.jpg"alt="">
+    <img src="image/Galeria_08.jpg"alt="">
+    <img src="image/Galeria_09.jpg"alt="">
+    <img src="image/Galeria_10.jpg"alt="">
+    <img src="image/Galeria_11.jpg"alt="">
+    <img src="image/Galeria_12.jpg"alt="">
+   
+
+    <!-- Imagens adicionais escondidas inicialmente -->
+   <img src="image/Galeria_13.jpg" class="hidden" alt="">
+   <img src= "image/Galeria_14.jpg" class="hidden" alt="">
+   <img src= "image/Galeria_15.jpg" class="hidden" alt="">
+   <img src= "image/Galeria_16.jpg" class="hidden" alt="">
+   <img src= "image/Galeria_17.jpg" class="hidden" alt="">
+   <img src= "image/Galeria_18.jpg" class="hidden" alt="">
+   <img src= "image/Galeria_19.jpg" class="hidden" alt="">
+   <img src= "image/Galeria_20.jpg" class="hidden" alt="">
+   <img src= "image/Galeria_21.jpg" class="hidden" alt="">
+   <img src= "image/Galeria_22.jpg" class="hidden" alt="">
+   <img src= "image/Galeria_23.jpg" class="hidden" alt="">
+   <img src= "image/Galeria_24.jpg" class="hidden" alt="">
+   <img src= "image/Galeria_25.jpg" class="hidden" alt="">
+   <img src= "image/Galeria_26.jpg" class="hidden" alt="">
+   <img src= "image/Galeria_27.jpg" class="hidden" alt="">
+   <img src= "image/Galeria_28.jpg" class="hidden" alt="">
+
+
+   <img src="image/story_01.jpg" class="hidden" alt="">
+   <img src="image/story_02.jpg" class="hidden" alt="">
+   <img src="image/story_03.jpg" class="hidden" alt="">
+   <img src="image/story_04.jpg" class="hidden" alt="">
+   <img src="image/story_05.jpg" class="hidden" alt="">
+   <img src="image/story_06.jpg" class="hidden" alt="">
+   <img src="image/story_07.jpg" class="hidden" alt="">
+   <img src="image/story_08.jpg" class="hidden" alt="">
+   <img src="image/story_09.jpg" class="hidden" alt="">
+   <img src="image/story_10.jpg" class="hidden" alt="">
+   <img src="image/story_11.jpg" class="hidden" alt="">
+   <img src="image/story_12.jpg" class="hidden" alt="">
+   <img src="image/story_13.jpg" class="hidden" alt="">
+   <img src="image/story_14.jpg" class="hidden" alt="">
+   <img src="image/story_15.jpg" class="hidden" alt="">
+   <img src="image/story_16.jpg" class="hidden" alt="">
+   <img src="image/story_17.jpg" class="hidden" alt="">
+   <img src="image/story_18.jpg" class="hidden" alt="">
+   <img src="image/story_19.jpg" class="hidden" alt="">
+   <img src="image/story_20.jpg" class="hidden" alt="">
+    <!-- Pode adicionar mais, só manter a classe "hidden" -->
+  </div>
+
+ <div class="load-more-container" style="text-align: center; margin-top: 20px;">
+    <button id="toggle-Button" class="load-more-btn" onclick="togglePortfolio()">Ver mais</button>
+ </div>
+
+  <script>
+  function togglePortfolio() {
+    const hiddenImages = document.querySelectorAll('.gallery img.hidden');
+    const allImages = document.querySelectorAll('.gallery img');
+    const button = document.getElementById('toggle-Button');
+
+    if (hiddenImages.length > 0) {
+      // Mostrar mais
+      let count = 0;
+      for (let img of hiddenImages) {
+        if (count < 8) {
+          img.classList.remove('hidden');
+          count++;
+        }
+      }
+
+      // Se agora não tiver mais imagens ocultas, muda texto para "Ver menos"
+      if (document.querySelectorAll('.gallery img.hidden').length === 0) {
+        button.textContent = "Ver menos";
+      }
+
+    } else {
+      // Recolher: esconder todas exceto as 8 primeiras
+      allImages.forEach((img, index) => {
+        if (index >= 8) {
+          img.classList.add('hidden');
+        }
+      });
+
+      button.textContent = "Ver mais";
+    }
+  }
+</script>
+  </section>
+  
+<section class="galeria-clientes" id="clientes">
+  <h2 class="galeria-titulo" style="font-size: 44px; color: #e60000;">Nossos Clientes</h2>
+
+  <div class="galeria-grid">
+    <!-- Logos visíveis -->
+    <img src="image/logo01.jpg">
+    <img src="image/logo02.jpg">
+    <img src="image/logo03.jpg">
+    <img src="image/logo04.jpg">
+    <img src="image/logo05.jpg">
+    <img src="image/logo06.jpg">
+    <img src="image/logo07.jpg">
+    <img src="image/logo08.jpg">
+    <img src="image/logo09.jpg">
+    <img src="image/logo10.jpg">
+    <img src="image/logo11.jpg">
+    <img src="image/logo12.jpg">
+
+
+    <!-- Logos ocultas -->
+    <div class="hidden-logos">
+    <img src="image/logo13.jpg">
+    <img src="image/logo14.jpg">
+    <img src="image/logo15.jpg">
+    <img src="image/logo16.jpg">
+    <img src="image/logo17.jpg">
+    <img src="image/logo18.jpg">
+    <img src="image/logo19.jpg">
+    <img src="image/logo20.jpg">
+    <img src="image/logo21.jpg">
+    <img src="image/logo22.jpg">
+
+    </div>
+  </div>
+
+  <button id="toggle-button" onclick="toggleGaleria()">Ver mais</button>
+</section>
+
+  <section id="contato" data-aos="fade-up" style="background-color: #e5e5e5;">
+    <h2 style="font-size: 44px; color: #e60000; text-align: center;">Contato</h2>
+    <form action="https://formspree.io/f/xgvkqgvv" method="POST">
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar Mensagem</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Marcos Luiz F. dos Reis. Todos os direitos reservados.
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+ function toggleTheme() {
+  const body = document.body;
+  const logoImg = document.getElementById("logo-img");
+  const contatoImg = document.getElementById("contato-img");
+
+  // Alterna o tema
+  body.classList.toggle("dark-mode");
+
+  const isDark = body.classList.contains("dark-mode");
+
+  // Troca as imagens conforme o tema
+  logoImg.src = isDark ? "image/LogoMarcos2.png" : "image/LogoMarcos.png";
+  contatoImg.src = isDark ? "image/contatos2.png" : "image/contatos.png";
+}
+
+  // Slide automático
+  let currentIndex = 0;
+  const slides = document.getElementById('slides');
+  const totalSlides = slides.children.length;
+
+  function moveSlide(direction) {
+    currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+    updateSlidePosition();
+  }
+
+  function updateSlidePosition() {
+    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  setInterval(() => moveSlide(1), 5000);
+</script>
+
+<script>
+  function toggleGaleria() {
+    const hidden = document.querySelector('.hidden-logos');
+    const button = document.getElementById('toggle-button');
+
+    hidden.classList.toggle('show');
+    if (hidden.classList.contains('show')) {
+      button.textContent = 'Ver menos';
+    } else {
+      button.textContent = 'Ver mais';
+    }
+  }
+</script>
+
+<a href="https://wa.me/5577998555810" 
+   class="whatsapp-float" 
+   target="_blank" 
+   title="Fale comigo no WhatsApp">
+  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" 
+       alt="WhatsApp" />
+</a>
+
+</body>
+</html>
